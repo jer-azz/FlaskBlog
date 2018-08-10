@@ -38,4 +38,8 @@ def create_app(test_config=None):
     app.register_blueprint(blog.bp)
     app.add_url_rule('/', endpoint='index')
 
+    from . import docagen
+    app.register_blueprint(docagen.bp)
+    app.add_url_rule('/docagen', endpoint='mapgen')
+
     return app
